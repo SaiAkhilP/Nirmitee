@@ -1,6 +1,7 @@
 const router = require("express").Router();
-const Meet = require("../model/MeetingModel");
+const Meet = require("../models/MeetingModel");
 
+//CREATE meeting controller
 router.post("/create", async (req, res) => {
   var meet = new Meet({
     meeting_id: req.body.meeting_id,
@@ -17,6 +18,7 @@ router.post("/create", async (req, res) => {
   }
 });
 
+//EDIT meeting by id
 router.put("/edit/:id", async (req, res) => {
   const id = req.params.id;
   if (!req.body) {
@@ -32,6 +34,7 @@ router.put("/edit/:id", async (req, res) => {
   }
 });
 
+//GET all meetings
 router.get("/get", async (req, res) => {
   Meet.find()
     .then((data) => {
@@ -42,6 +45,7 @@ router.get("/get", async (req, res) => {
     });
 });
 
+//GET meeting by ID
 router.get("/get/:id", async (req, res) => {
   Meet.findById(req.params.id)
     .then((data) => {

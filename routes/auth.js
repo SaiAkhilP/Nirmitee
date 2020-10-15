@@ -1,13 +1,13 @@
 const router = require("express").Router();
-const User = require("../model/user");
+const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const { registerValidation } = require("../validator");
+const Valid = require("../validator");
 
-//Registration
-
+//Signing Up
 router.post("/signup", async (req, res) => {
-  const { error } = registerValidation(req.body);
+  //Check validations for input
+  const { error } = Valid.signupValidation(req.body);
   if (error) {
     return res.status(400).json({ error: error.details[0].message });
   }
