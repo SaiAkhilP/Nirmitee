@@ -35,7 +35,7 @@ https://nirmitee-task.herokuapp.com/api/admin/signin
 [GET] /api/admin/users :  to get list of all registered users\
 [GET] /api/admin/users/:id : get user by _id\
 [PUT] /api/admin/users/:id : update user by id\
-[DEL] /api/admin/users/:id : delete user by id
+[DEL] /api/admin/users/:id : delete user by id\
 (Input body is of type 'x-www-form-urlencoded')
 
 
